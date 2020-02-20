@@ -1,0 +1,171 @@
+*{
+    /* CORRIGINDO O COMPORTAMENTO PADRÃO DO CSS*/
+    box-sizing: border-box;
+}
+/*GLOBAL*/
+html, body{
+    margin: 0;
+}
+
+h1, h2 {
+    color: #000000ee;
+}
+
+.logo{
+    width: 150px;
+    margin: 70px;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+
+    height: 100vh;
+    /* fonte */
+    font-family: 'Roboto', sans-serif;
+
+    background-color: #f9f9f9;
+}
+
+/*TITULOS*/
+header h1, main h2{
+    margin-bottom: 70px;
+}
+
+/*h2 do form*/
+.form h2{
+    text-align: right;
+    margin-right: 30px;
+    color: #ffffffee;
+    font-size: 18px;
+}
+
+/* ESTRUTURA */
+header, main, footer{
+    /* ALINHAMENTO DE TEXTOS*/
+    text-align: center;
+}
+
+header, .form, main{
+    /*espaçamentos com margin*/
+    margin: 0 auto 70px auto;
+
+    /* limites dos elementos na página*/
+    width: 90%;
+    max-width: 500px;
+}
+
+header button{
+    margin-top: 20px;
+    padding: 8px 16px;
+    border-radius: 4px;
+    border: none;
+
+    background-color: #ff3737;
+    color: #eee;
+
+    font-weight: bold;
+}
+/* FORM */
+.form{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    align-items: center;
+    
+    background-color: #ff3737;
+    padding: 16px 64px;
+
+    border-radius: 6px;
+
+}
+form input, form button{
+    /*largura*/
+    width: 100%;
+
+    /*espaçamentos*/
+    margin-bottom: 4px;
+
+    /*corrigindo comportamento padrão css*/
+    box-sizing: border-box;/*faz o padding respeitar o limite de 100% do */
+
+    /*preenchimento*/
+    padding: 8px 16px;
+    
+    /*bordas*/
+    border-radius: 6px;
+    border: 1px #ffffff88 solid;
+
+
+}
+form input{
+    background-color: transparent;
+
+}
+form input::placeholder{/*pegando o placeholder de dentro do input*/
+
+    color: #ffffff88;
+}
+form button{
+    font-weight: bold;
+}
+
+/* MAIN */
+ main .donors{ /*cascata*/
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+main h2 span{
+    color: #ff2a2a;
+}
+
+.blood{
+    color:#ff2a2a;
+    font-weight: bold;
+    font-size:12px;
+
+    display: flex;
+    align-items: center;
+    position: relative;
+
+    justify-content: center;
+    
+}
+.blood::before {/* vai criar um elemento com nome before, na div blood*/ 
+    content: "";
+    background-color: #f33d3d33;
+
+    width: 40px;
+    height: 40px;
+    position: absolute;
+
+    /* FAZENDO A GOTA */
+    border-radius: 50%;
+    border-top-right-radius: 0;
+    transform: rotate(-45deg); /* fazendo a rotação do elemento em -45° */
+}
+.donor p{
+    margin-top: 25px;
+    font-size: 16px;
+}
+
+footer{
+    /* espaçamento para fazer com que o rodapé fique sempre em baixo*/
+    margin-top: auto;
+    padding: 16px;
+    border: 1px solid #eee;
+    
+}
+
+/* funcionalidades com JavaScript*/
+section.form.hide{
+    opacity: 0;
+    visibility: hidden;
+    height: 0;
+    margin-top: -70px;
+}
+
+section.form{/* transição do formulário*/
+    transition: all 400ms;
+}
